@@ -1,0 +1,26 @@
+{
+  "size": 0,
+  "aggs": {
+    "office": {
+      "terms": {
+        "field": "_coll_target_nm"
+      },
+      "aggs": {
+        "danger": {
+          "terms": {
+            "script": "String aaa = /_/.split(doc.value_list[0])[0]; if (aaa == 'd') {doc['grp_nm'].value}",
+            "size": 20
+          }
+        },
+      "aggs": {
+        "warning": {
+          "terms": {
+            "script": "String aaa = /_/.split(doc.value_list[0])[0]; if (aaa == 'w') {doc['grp_nm'].value}",
+            "size": 20
+          }
+        }
+          
+      }
+    }
+  }
+}
