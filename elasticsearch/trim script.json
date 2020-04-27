@@ -1,0 +1,8 @@
+GET ts_ntm_detect_rule/_update_by_query
+
+{
+"script": {
+"inline": "ctx._source.DRULE_NM = ctx._source.DRULE_NM.trim();",
+"lang": "painless"
+}
+}
